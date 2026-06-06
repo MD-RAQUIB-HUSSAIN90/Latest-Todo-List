@@ -2,7 +2,7 @@ A responsive To-Do List web application built with HTML, CSS, and JavaScript. Us
 
 
 LIVE LINK
-[comfy-kheer-7937b3.netlify.app](https://comfy-kheer-7937b3.netlify.app/)
+[comfy-kheer-7937b3.netlify.app]https://taupe-trifle-6fb0ce.netlify.app/
 
 # 📝 To-Do List App
 
