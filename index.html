@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do list</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sticky">
+            <h2 ><span class="fa-solid fa-clipboard-check"></span> To-do List</h2>
+            <div class="child">
+                <input type="text" id="taskInput" placeholder="Enter a task">
+            </div>
+            <div class="btns">
+                <button id="addTaskButton"><span class="fa-solid fa-plus"
+                        style="position: relative; left: -10px;"></span>Add Task</button>
+                <button id="deleteAll"> <span class="fa-solid fa-trash"
+                        style="position: relative; left: -10px;"></span>Delete All
+            </div>
+        </div>
+
+        <ul class="taskList"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
