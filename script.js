@@ -20,22 +20,29 @@ btn.addEventListener("click", function () {
   // CREATE DELETE BUTTON
   let deleteBtn = document.createElement("button");
   deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
-
   deleteBtn.classList.add("delete");
 
-  // CREATE "DONE" BUTTON
+  // CREATE DONE BUTTON
   let done = document.createElement("button");
   done.innerHTML = '<i class="fa-solid fa-check"></i>';
   done.classList.add("done");
 
-  // CREATE "DIV"
+  // CREATE UNDO BUTTON
+  let undo = document.createElement("button");
+  undo.innerHTML = '<i class="fa-solid fa-rotate-left"></i>';
+  undo.classList.add("done");
+
+  // CREATE DIV
   let div = document.createElement("div");
   div.classList.add("btn-box");
+
   li.append(div);
 
-  // APPEND DELETE BUTTON TO LI
+  // APPEND BUTTONS
   div.appendChild(done);
+  div.appendChild(undo);
   div.appendChild(deleteBtn);
+
   ul.append(li);
 
   // DELETE FUNCTIONALITY
@@ -43,15 +50,20 @@ btn.addEventListener("click", function () {
     li.remove();
   });
 
-  // DONE ITEMS
+  // DONE FUNCTIONALITY
   done.addEventListener("click", function () {
-    span.classList.toggle("checkOut");
-    done.classList.toggle("redo");
+    span.classList.add("checkOut");
+  });
+
+  // UNDO FUNCTIONALITY
+  undo.addEventListener("click", function () {
+    span.classList.remove("checkOut");
   });
 
   input.value = "";
-  // CLEAR ALL ITEMS
-  dltBtn.addEventListener("click", () => {
-    li.remove();
-  });
+});
+
+// DELETE ALL FUNCTIONALITY
+dltBtn.addEventListener("click", () => {
+  ul.innerHTML = "";
 });
