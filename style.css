@@ -13,15 +13,21 @@ body {
   background: url(assets/imgback.png);
   background-size: cover;
   overflow: hidden;
-  /* backdrop-filter: blur(2px); */
+  backdrop-filter: blur(1px);
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   height: 100vh;
   overflow-y: auto;
-  padding: 0px 20px;
+  padding: 10px 20px;
+  backdrop-filter: blur(2px);
+  /* box-shadow: 20px 20px 70px black; */
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .container::-webkit-scrollbar {
   display: none; /* Chrome, Edge, Safari */
@@ -31,8 +37,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.99);
   backdrop-filter: blur(10px);
+  width: 100%;
 }
 
 h2 {
@@ -86,15 +93,14 @@ h2 {
 
 #deleteAll {
   background: transparent;
-  border-top: 1px solid rgb(103, 69, 69);
-  border-bottom: 4px solid rgb(103, 69, 69);
+  border: 3px solid rgb(103, 69, 69);
   color: white;
 }
 
 #addTaskButton {
   background: transparent;
-  border-bottom: 4px solid rgb(103, 69, 69);
-  border-top: 1px solid rgb(103, 69, 69);
+  padding: 0px 5px;
+  border: 3px solid rgb(103, 69, 69);
   color: white;
 }
 
@@ -130,34 +136,68 @@ h2 {
   color: rgb(143, 140, 140);
 }
 
+.undo {
+  border: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
 .taskList {
   list-style: none;
   margin-top: 20px;
+  width: 80%;
 }
 
 .taskList li {
   background: transparent;
+  opacity: 2;
   color: white;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 10px;
-  border-radius: 4px;
   border-bottom: 0.1px solid #7f7f82;
   font-size: 16px;
   word-wrap: break-word;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  box-shadow: -2px 5px 5px rgba(24, 24, 24, 0.8);
+  backdrop-filter: blur(200px);
 }
 .btn-box {
+  position: fixed;
+  right: -8px;
   padding: 1px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
 }
 .btn-box button i {
-  width: 1.5rem;
+  width: 1rem;
+}
+
+.btn-box button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.edit {
+  cursor: pointer;
+  border: none;
+  color: white;
+  background-color: transparent;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 11px;
+}
+
+.inptVal {
+  position: fixed;
+  left: 30px;
+}
+
+span[contenteditable="true"] {
+  outline: 1px solid #fff;
+  border-radius: 5px;
+  padding: 4px 9px;
 }
 
 /* Tablet */
@@ -184,6 +224,7 @@ h2 {
     width: 95%;
     height: 85vh;
     padding: 15px;
+
     overflow-y: auto;
   }
 
@@ -210,6 +251,7 @@ h2 {
 
   .taskList li {
     font-size: 14px;
+
     padding: 10px;
   }
 }
