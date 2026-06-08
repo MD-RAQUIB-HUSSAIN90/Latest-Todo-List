@@ -14,6 +14,7 @@ btn.addEventListener("click", function () {
   let li = document.createElement("li");
   let span = document.createElement("span");
   span.textContent = input.value;
+  
   li.classList.add("list-item");
   li.prepend(span);
 
