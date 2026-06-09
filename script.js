@@ -21,6 +21,7 @@ btn.addEventListener("click", function () {
   let span = document.createElement("span");
   span.textContent = input.value;
   span.classList.add("inptVal");
+  span.style.minWidth = "50%";
   li.classList.add("list-item");
 
   //   PREPENDING
@@ -57,59 +58,64 @@ btn.addEventListener("click", function () {
   div.appendChild(undo);
   div.appendChild(edit);
   div.appendChild(deleteBtn);
-
   ul.append(li);
 
-  // DELETE FUNCTIONALITY
-  deleteBtn.addEventListener("click", function () {
-    li.remove();
-  });
-
   // DONE FUNCTIONALITY
-  done.addEventListener("click", function () {
+  function Done() {
     span.classList.add("checkOut");
-    done.classList.add("redo");
-  });
+    num.classList.add("checkOut");
+    done.classList.add("checkOut");
+    edit.classList.add("checkOut");
+    edit.removeEventListener("click", editContent);
+  }
+  done.addEventListener("click", Done);
 
   // UNDO FUNCTIONALITY
-  undo.addEventListener("click", function () {
+  function Undo() {
     span.classList.remove("checkOut");
-    done.classList.remove("redo");
-  });
-
-  span.addEventListener("click", () => {
-    span.contentEditable = true;
-    span.focus();
-  });
+    done.classList.remove("checkOut");
+    num.classList.remove("checkOut");
+    edit.addEventListener("click", editContent);
+  }
+  undo.addEventListener("click", Undo);
 
   // EDIT FUNCTIONALITY
-  edit.addEventListener("click", function () {
+  function editContent() {
     span.contentEditable = true;
     span.focus();
-  });
+  }
+  edit.addEventListener("click", editContent);
+
+  function ItemDltBtn() {
+    li.remove();
+  }
+  // DELETE FUNCTIONALITY
+  deleteBtn.addEventListener("click", ItemDltBtn);
 
   // SAVE ON ENTER
-  span.addEventListener("keydown", function (e) {
+  function Save(e) {
     if (e.key === "Enter") {
       e.preventDefault();
-
       span.contentEditable = false;
     }
-  });
+  }
+  span.addEventListener("keydown", Save);
 
   // SAVE ON CLICK OUTSIDE
-  span.addEventListener("blur", function () {
+  function saveOnClick() {
     span.contentEditable = false;
     span.classList.remove("checkOut");
     done.classList.remove("redo");
-  });
+  }
+  span.addEventListener("blur", saveOnClick);
 
   input.value = "";
 });
 
 // DELETE ALL FUNCTIONALITY
-dltBtn.addEventListener("click", () => {
+function deleteAllBtn() {
   ul.innerHTML = "";
   count = 1;
   input.value = "";
-});
+}
+dltBtn.addEventListener("click", deleteAllBtn);
